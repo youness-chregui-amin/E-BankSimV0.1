@@ -1,7 +1,3 @@
-/*
-CopyRight ProgrammingAdvices.com
-Mohammed Abu-Hadhoud
-*/
 #pragma warning(disable : 4996)
 #include <iostream>
 #include <fstream>
@@ -1607,4 +1603,5 @@ int main()
 
     system("pause>0");
     return 0;
+
 }
