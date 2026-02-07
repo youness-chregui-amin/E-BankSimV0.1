@@ -1,6 +1,0 @@
-﻿  E-BankSim.cpp
-D:\visual c++\E-BankSim\E-BankSim\E-BankSim.cpp(45,26): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
-D:\visual c++\E-BankSim\E-BankSim\E-BankSim.cpp(463,1): warning C4715: 'DeleteClientByAccountNumber': not all control paths return a value
-D:\visual c++\E-BankSim\E-BankSim\E-BankSim.cpp(503,1): warning C4715: 'UpdateClientByAccountNumber': not all control paths return a value
-D:\visual c++\E-BankSim\E-BankSim\E-BankSim.cpp(534,1): warning C4715: 'DepositBalanceToClientByAccountNumber': not all control paths return a value
-  E-BankSim.vcxproj -> D:\visual c++\E-BankSim\x64\Debug\E-BankSim.exe
