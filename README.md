@@ -1,142 +1,153 @@
+# **E-BankSim v0.1**
 
-# E-BankSim
-
-This project is a simple **E-BankSim** implemented in **C++** that simulates a banking system for managing clients and users, including authentication, permissions, and transactions.
-
-## Database Concept
-
-The project uses text files as databases to store information:
-
-* **Clients.txt**: Stores client records.
-* **Users.txt**: Stores user records with login credentials and permissions.
-
-### Client Record Fields
-
-Each client record contains:
-
-* Account Number
-* Pin Code
-* Name
-* Phone
-* Account Balance
-
-Records are stored with a custom separator: `#//#`.
-
-### User Record Fields
-
-Each user record contains:
-
-* Username
-* Password
-* Permissions (integer representing access rights)
-
-Records are stored with a custom separator: `#//#`.
+**E-BankSim** is a C++ console application that simulates a simple electronic banking system. It manages client information, handles transactions, and now includes **user authentication and permissions management**, bringing it closer to a real-world banking simulation.
 
 ---
 
-## Features
+## **Table of Contents**
 
-### Authentication
+1. [Features](#features)
+2. [Login Information](#login-information)
+3. [Database Structure](#database-structure)
+4. [How It Works](#how-it-works)
+5. [Project Structure](#project-structure)
+6. [Learning Goals](#learning-goals)
+7. [Changes from Previous Version](#changes-from-previous-version)
 
-* **User Login**: Requires username and password.
-* Denies access if credentials are incorrect.
-* Tracks `CurrentUser` and their permissions.
+---
 
-### CRUD Operations
+## **Features**
 
-**Clients:**
+### **Client Management (CRUD)**
 
 * Add new clients
-* Update client info
+* Update client information
 * Delete clients
-* Find clients by Account Number
-* Display all clients in a table-like format
+* Search clients by Account Number
 
-**Users:**
-
-* Add new users
-* Update user info
-* Delete users (Admin protected)
-* Find users by username
-* Display all users in a table-like format
-
-### Transactions
+### **Transactions**
 
 * Deposit money
 * Withdraw money
-* Show total balances of all clients
+* Display total balances of all clients
 
-### Permissions System
+### **User Management**
 
-* Each user can have specific permissions to perform actions:
+* Add, update, delete, and search users
+* Assign permissions (Full Access / Limited Access)
+* Secure login system
 
-  * List clients
-  * Add new client
-  * Delete client
-  * Update client info
-  * Find client
-  * Perform transactions
-  * Manage users
-* **Admin** users have full access.
+### **Command-Line Interface (CLI)**
 
----
+* User-friendly text-based menus
+* Organized navigation:
 
-## Menus
-
-The project uses a **command-line interface (CLI)** with the following menus:
-
-### Main Menu
-
-1. Show Client List
-2. Add New Client
-3. Delete Client
-4. Update Client Info
-5. Find Client
-6. Transactions
-7. Manage Users
-8. Logout
-
-### Transactions Menu
-
-1. Deposit
-2. Withdraw
-3. Total Balances
-4. Main Menu
-
-### Manage Users Menu
-
-1. List Users
-2. Add New User
-3. Delete User
-4. Update User
-5. Find User
-6. Main Menu
+  * **Main Menu**
+  * **Transactions Menu**
+  * **User Management Menu**
 
 ---
 
-## How It Works
+## **Login Information**
 
-1. User logs in with username and password.
-2. User’s permissions are loaded and determine access to menu options.
-3. Client and user data are loaded from text files into memory (vectors).
-4. Operations are performed on in-memory data.
-5. Changes are saved back to text files to maintain persistence.
+**Default Admin Credentials:**
+
+* **Username:** `admin`
+* **Password:** `1234`
+
+> Admin has full access to all functionalities: client management, transactions, and user management.
 
 ---
 
-## Learning Goals
+## **Database Structure**
+
+**Clients.txt** – Stores client data:
+
+| Field           | Description       |
+| --------------- | ----------------- |
+| Account Number  | Unique identifier |
+| Pin Code        | Client PIN        |
+| Name            | Client name       |
+| Phone           | Contact number    |
+| Account Balance | Current balance   |
+
+**Users.txt** – Stores user data:
+
+| Field       | Description                   |
+| ----------- | ----------------------------- |
+| Username    | User login name               |
+| Password    | User password                 |
+| Permissions | Access level (Full / Limited) |
+
+> All records are separated using a custom delimiter: `#//#`.
+
+---
+
+## **How It Works**
+
+1. The application loads data from `Clients.txt` and `Users.txt` into memory (vectors).
+2. Users perform operations on in-memory data.
+3. Changes are saved back to the text files immediately.
+4. Users navigate via structured CLI menus:
+
+**Main Menu**
+
+* Show Client List
+* Add New Client
+* Delete Client
+* Update Client Info
+* Find Client
+* Transactions
+* Manage Users
+* Logout
+
+**Transactions Menu**
+
+* Deposit
+* Withdraw
+* Show Total Balances
+* Back to Main Menu
+
+**User Management Menu**
+
+* List Users
+* Add New User
+* Delete User
+* Update User
+* Find User
+* Back to Main Menu
+
+---
+
+## **Project Structure**
+
+```
+E-BankSimV0.1.cpp      → Main source code
+Clients.txt        → Client database
+Users.txt          → User database
+README.md          → Project documentation
+```
+
+---
+
+## **Learning Goals**
 
 * Simulate a database using text files
-* Learn file handling with `fstream` in C++
-* Practice CRUD operations in a CLI project
-* Implement user authentication and permission-based access control
+* Practice file handling in C++ with `fstream`
+* Implement CRUD operations in a CLI project
 * Understand data persistence without a real database
+* Learn basic user authentication and permissions handling
 
 ---
 
-## Project Structure
+## **Changes from Previous Version**
 
-* `E-BankSim.cpp` → Source code
-* `Clients.txt` → Database file storing client records
-* `Users.txt` → Database file storing user records
-* `README.md` → Project description
+| Aspect              | Previous Version                 | v0.1 Professional Version                        |
+| ------------------- | -------------------------------- | ------------------------------------------------ |
+| User Authentication | Not included                     | Added login system with username/password        |
+| User Management     | Not included                     | Full CRUD with permissions                       |
+| Database Files      | Only Clients.txt                 | Clients.txt + Users.txt                          |
+| Menu Structure      | Simple Main & Transactions menus | Main Menu + Transactions + User Management menus |
+| Security            | None                             | Permission-based access control                  |
+| CLI Experience      | Basic                            | Structured, user-friendly                        |
+| Documentation       | Minimal                          | Detailed, professional, includes tables & flow   |
